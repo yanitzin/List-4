@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  color="light">
+    <ion-title>
+      Lista
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Lista</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Tareas Realizadas</ion-label>
+    </ion-list-header>
+    <div *ngFor="let tareas of tarea; index as i">
+        <ion-item (click)="view(tarea)" *ngIf="tareas.active"> 
+          <ion-avatar slot="start">
+            <img [src]="tareas.data"/>
+        </ion-avatar>
+          <ion-label>{{tareas.description}}</ion-label>
+    
+        </ion-item>
+      
+    </div>
+  </ion-list>
+
+</ion-content>
