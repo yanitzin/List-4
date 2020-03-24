@@ -15,10 +15,10 @@ export class Tab3Page {
   constructor(private tareasService: TareasService, private router : Router) {
   this.tarea = this.tareasService.getTareas();
   }
-  view(tarea : any): void {
+  view(tareas : any): void {
     const extras: NavigationExtras = {
       queryParams: {
-        special: JSON.stringify(tarea)
+        special: JSON.stringify(tareas)
       }
     };
 

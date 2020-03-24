@@ -1,21 +1,27 @@
 <ion-header>
   <ion-toolbar color="light">
     <ion-title>Detalle</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
+    <ion-avatar>
+      <img [src]="tareas.data"/>
+  </ion-avatar>
     <ion-card-header>
-      <ion-card-subtitle>{{tarea.description}}</ion-card-subtitle>
+        <ion-card-title>{{tareas.description}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <h3>Lugar: {{tarea.place}}</h3>
-      <h3>Hora: {{tarea.time}}</h3>
-      <ion-chip color="danger" *ngIf="!tarea.active">
+      <h3>Lugar: {{tareas.place}}</h3>
+      <h3>Hora: {{tareas.time}}</h3>
+      <ion-chip color="danger" *ngIf="!tareas.active">
         <ion-label>No realizado</ion-label>
       </ion-chip>
-      <ion-chip color="success" *ngIf="tarea.active">
+      <ion-chip color="success" *ngIf="tareas.active">
         <ion-label>Realizada</ion-label>
       </ion-chip>
     </ion-card-content>

@@ -18,7 +18,7 @@
       <ion-label>Tareas no realizadas</ion-label>
     </ion-list-header>
     <div *ngFor="let tareas of tarea; index as i">
-        <ion-item (click)="view(tarea)" *ngIf="!tareas.active"> 
+        <ion-item (click)="view(tareas)" *ngIf="!tareas.active"> 
           <ion-avatar slot="start">
             <img [src]="tareas.data"/>
         </ion-avatar>

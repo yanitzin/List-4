@@ -19,7 +19,7 @@
     </ion-list-header>
     <div *ngFor="let tareas of tarea; index as i">
       <ion-item-sliding (ionSwipe)="changeStatus(i)">
-        <ion-item (click)="view(tarea)" *ngIf="(!active)||(active && student.active)"> 
+        <ion-item (click)="view(tareas)" *ngIf="(!active)||(active && tareas.active)"> 
           <ion-avatar slot="start">
             <img [src]="tareas.data"/>
         </ion-avatar>

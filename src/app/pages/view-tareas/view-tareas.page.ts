@@ -8,12 +8,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ViewTareasPage implements OnInit {
 
- tarea: any;
+ tareas: any;
 
   constructor(private actroute: ActivatedRoute, private router: Router) { 
     this.actroute.queryParams.subscribe(
       params => {
-        this.tarea = JSON.parse(params.special);
+        this.tareas = JSON.parse(params.special);
       }
     );
   }
