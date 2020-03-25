@@ -9,7 +9,12 @@ const routes: Routes = [
   {
     path: 'view-tareas',
     loadChildren: () => import('./pages/view-tareas/view-tareas.module').then( m => m.ViewTareasPageModule)
+  },
+  {
+    path: 'new-tareas',
+    loadChildren: () => import('./form/new-tareas/new-tareas.module').then( m => m.NewTareasPageModule)
   }
+
 ];
 @NgModule({
   imports: [

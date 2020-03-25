@@ -31,4 +31,8 @@ export class Tab1Page {
     this.tareasService.changeStatus(pos);
   }
 
+  newTareas(): void{
+    this.router.navigate(['/new-tareas']);
+  }
+
 }
