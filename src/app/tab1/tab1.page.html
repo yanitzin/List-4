@@ -12,6 +12,12 @@
     <ion-list-header>
       <ion-label>Todos las Tareas</ion-label>
     </ion-list-header>
+
+    <ion-item>
+      <ion-label position="floating">Buscar</ion-label>
+      <ion-input type="text" [(ngModel)]="search" (keyup)="filter()"></ion-input>
+    </ion-item>
+    
     <div *ngFor="let tareas of tarea; index as i">
       <ion-item-sliding (ionSwipe)="changeStatus(i)">
         <ion-item (click)="view(tareas)" *ngIf="(!active)||(active && tareas.active)"> 

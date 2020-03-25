@@ -12,6 +12,7 @@ export class Tab1Page {
 
   tarea: Tareas[] = [];
   active = false;
+  search: string;
 
   constructor(private  tareasService : TareasService, private router : Router) {
     this.tarea = this.tareasService.getTareas();
@@ -35,4 +36,18 @@ export class Tab1Page {
     this.router.navigate(['/new-tareas']);
   }
 
+  clearSearch(): void{
+    this.tarea = this.tareasService.getTareas();
+  }
+
+  filter(): void {
+    this.clearSearch();
+
+    if(this.search && this.search.trim()){
+      this.tarea = this.tarea.filter( (tareas) =>{
+        return (tareas.description.toLocaleLowerCase().indexOf(this.search.toLocaleLowerCase())>-1);
+      });
+    }
+  }
 }
+

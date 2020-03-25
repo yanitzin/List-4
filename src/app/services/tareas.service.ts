@@ -40,6 +40,7 @@ export class TareasService {
   getTareas (): Tareas [] {
     return this.tarea;
   }
+  
   newTareas(tareas: Tareas): void {
     this.tarea.push(tareas);
   }
