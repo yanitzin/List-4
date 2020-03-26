@@ -44,4 +44,8 @@ export class TareasService {
   newTareas(tareas: Tareas): void {
     this.tarea.push(tareas);
   }
+
+  deleteStudent(position: number): void{
+    this.tarea.splice(position, 1);
+  }
 }

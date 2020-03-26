@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Tareas } from '../models/tareas';
 import { TareasService } from '../services/tareas.service';
 import { Router, NavigationExtras } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -14,7 +15,8 @@ export class Tab1Page {
   active = false;
   search: string;
 
-  constructor(private  tareasService : TareasService, private router : Router) {
+  constructor(private  tareasService : TareasService, private router : Router, 
+    private alert: AlertController) {
     this.tarea = this.tareasService.getTareas();
   }
   
@@ -28,9 +30,33 @@ export class Tab1Page {
     this.router.navigate(['/view-tareas'], extras);
   }
 
-  changeStatus(pos: number): void{
-    this.tareasService.changeStatus(pos);
+  operation(pos: number, ev: {detail: { side }}) {
+    const side = ev.detail.side;
+    if (side === 'start') {
+      this.tareasService.changeStatus(pos);
+    } else {
+      this.showAlert(pos);
+    }
   }
+
+  async showAlert(pos: number)
+   {
+    const al = await this.alert.create({
+      header: 'Confirmar',
+      message: '¿Seguro que desea eliminar',
+      buttons: [{
+        text:'No',
+        handler: () =>{}
+      }, {
+        text: 'Si',
+        handler: () =>{
+          this.tareasService.deleteStudent(pos);
+        }
+      }]
+    });
+    await al.present();
+  }
+
 
   newTareas(): void{
     this.router.navigate(['/new-tareas']);
